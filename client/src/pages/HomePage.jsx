@@ -68,26 +68,58 @@ const HomePage = () => {
   };
 
   return (
-    <div style={{ padding: '30px 20px 60px 20px' }}>
+    <div className="feed-page-wrapper">
       <div className="container feed-grid">
         {/* Main Feed Column */}
-        <div>
+        <div className="feed-main">
           {/* Welcome & Complete Profile Banner */}
           <CompleteProfileBanner />
+
+          {/* Quick Profile Summary Bar for Mobile */}
+          {user && (
+            <div className="card mobile-user-quick-bar" style={{ marginBottom: '18px', padding: '14px 16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+                <Link to={`/profile/${user._id}`} style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', minWidth: 0 }}>
+                  <img
+                    src={user.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user?.name || 'User')}&backgroundColor=0F766E`}
+                    alt={user?.name || 'User'}
+                    style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }}
+                  />
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ fontWeight: 700, fontSize: '0.925rem', color: 'var(--color-text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {user?.name}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {user.role === 'worker' ? (user.organization || 'Social Worker') : (user.location || 'Volunteer')}
+                    </div>
+                  </div>
+                </Link>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                  <div style={{
+                    backgroundColor: 'var(--color-primary-light)',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '6px 10px',
+                    textAlign: 'right'
+                  }}>
+                    <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--color-text-secondary)', textTransform: 'uppercase' }}>Hours</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-primary)', lineHeight: 1 }}>
+                      {user.totalHours || 0}
+                    </div>
+                  </div>
+                  <Link to={`/profile/${user._id}`} className="btn btn-primary btn-sm" style={{ padding: '6px 10px', fontSize: '0.775rem' }}>
+                    Portfolio
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Create Post Component */}
           <CreatePostBox onPostCreated={handlePostCreated} />
 
           {/* Causes Filter Scroll Bar */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            overflowX: 'auto',
-            paddingBottom: '12px',
-            marginBottom: '20px',
-            scrollbarWidth: 'thin'
-          }}>
+          <div className="causes-scroll-container">
             <button
               onClick={() => setSelectedCause('All')}
               className={`tag-selectable ${selectedCause === 'All' ? 'selected' : ''}`}
@@ -135,10 +167,10 @@ const HomePage = () => {
         </div>
 
         {/* Right Sidebar Column */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {/* User Quick Portfolio Card */}
+        <div className="feed-sidebar">
+          {/* User Quick Portfolio Card (Desktop only, mobile has compact header) */}
           {user && (
-            <div className="card" style={{ padding: '20px' }}>
+            <div className="card desktop-only-user-card" style={{ padding: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                 <img
                   src={user.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user?.name || 'User')}&backgroundColor=0F766E`}
@@ -257,14 +289,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 860px) {
-          .container {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </div>
   );
 };

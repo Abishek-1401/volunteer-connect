@@ -84,32 +84,41 @@ const PostCard = ({ post, onDelete }) => {
   };
 
   return (
-    <div className="card" style={{ marginBottom: '20px', padding: '20px' }}>
+    <div className="card" style={{ marginBottom: '20px' }}>
       {/* Header: Author details */}
       <div style={{
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        marginBottom: '14px'
+        marginBottom: '14px',
+        gap: '10px'
       }}>
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <Link to={`/profile/${author._id || post.author}`}>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', minWidth: 0, flex: 1 }}>
+          <Link to={`/profile/${author._id || post.author}`} style={{ flexShrink: 0 }}>
             <img
               src={author.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(author.name || 'User')}&backgroundColor=0F766E`}
               alt={author.name}
               style={{
-                width: '46px',
-                height: '46px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
                 objectFit: 'cover'
               }}
             />
           </Link>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
               <Link
                 to={`/profile/${author._id || post.author}`}
-                style={{ fontWeight: 700, fontSize: '0.975rem', color: 'var(--color-text)' }}
+                style={{
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  color: 'var(--color-text)',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '180px'
+                }}
               >
                 {author.name || 'Volunteer Member'}
               </Link>
@@ -203,10 +212,11 @@ const PostCard = ({ post, onDelete }) => {
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '18px',
+        gap: '16px',
         paddingTop: '12px',
         borderTop: '1px solid var(--color-border)',
-        fontSize: '0.875rem'
+        fontSize: '0.875rem',
+        flexWrap: 'wrap'
       }}>
         {/* Like Button with Warm Orange 10% Accent */}
         <button
@@ -259,20 +269,20 @@ const PostCard = ({ post, onDelete }) => {
         }}>
           {/* Add Comment Input */}
           {user ? (
-            <form onSubmit={handleAddComment} style={{ display: 'flex', gap: '10px', marginBottom: '16px' }}>
+            <form onSubmit={handleAddComment} style={{ display: 'flex', gap: '8px', marginBottom: '16px', width: '100%' }}>
               <input
                 type="text"
                 placeholder="Share your encouragement or thoughts..."
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 className="form-input"
-                style={{ padding: '8px 12px', fontSize: '0.875rem' }}
+                style={{ padding: '8px 12px', fontSize: '0.875rem', flex: 1, minWidth: 0 }}
               />
               <button
                 type="submit"
                 disabled={isSubmittingComment || !commentText.trim()}
                 className="btn btn-primary btn-sm"
-                style={{ padding: '8px 14px' }}
+                style={{ padding: '8px 14px', flexShrink: 0 }}
               >
                 <Send size={15} />
               </button>

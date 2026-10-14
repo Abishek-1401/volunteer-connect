@@ -58,16 +58,16 @@ const CreatePostBox = ({ onPostCreated }) => {
   const firstName = user?.name ? user.name.split(' ')[0] : 'Volunteer';
 
   return (
-    <div className="card" style={{ marginBottom: '24px', padding: '20px' }}>
+    <div className="card" style={{ marginBottom: '24px' }}>
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
           <img
             src={user?.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(userName)}&backgroundColor=0F766E`}
             alt={userName}
-            style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover' }}
+            style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }}
           />
 
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <textarea
               placeholder={`What community impact did you make today, ${firstName}?`}
               value={content}

@@ -18,15 +18,15 @@ const CompleteProfileBanner = () => {
       backgroundColor: 'var(--color-primary-light)',
       border: '1px solid var(--color-primary-border)',
       borderRadius: 'var(--radius-lg)',
-      padding: '16px 20px',
+      padding: 'clamp(14px, 3vw, 20px)',
       marginBottom: '24px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      gap: '16px',
+      gap: '14px',
       flexWrap: 'wrap'
     }} className="fade-in">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0, flex: 1 }}>
         <div style={{
           width: '36px',
           height: '36px',
@@ -40,17 +40,17 @@ const CompleteProfileBanner = () => {
         }}>
           <Sparkles size={18} color="#FDBA74" />
         </div>
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ fontWeight: 700, fontSize: '0.9375rem', color: 'var(--color-primary)' }}>
             Complete your impact portfolio, {user?.name || 'Friend'}!
           </div>
-          <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-secondary)' }}>
+          <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
             Add a brief bio, showcase your skills, and log your volunteer hours to stand out on the Explore page.
           </div>
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
         <Link
           to={`/profile/${user._id}`}
           className="btn btn-primary btn-sm"
