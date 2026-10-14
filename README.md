@@ -12,11 +12,15 @@ A social media platform for volunteers and social service workers. It works as a
 
 | Landing | Feed |
 | :---: | :---: |
-| *(Landing Preview)* | *(Feed Preview)* |
+| <img width="1857" height="1330" alt="image" src="https://github.com/user-attachments/assets/e92db72a-c8a4-43ff-ad5a-2aa4e158f6ee" />
+ | <img width="1857" height="3570" alt="image" src="https://github.com/user-attachments/assets/6658790a-cc5d-430c-b73f-0e55e9078723" />
+ |
 
-| Profile (Portfolio) | Explore |
+| Explore | Profile (Portfolio) |
 | :---: | :---: |
-| *(Portfolio Preview)* | *(Explore Preview)* |
+| <img width="1857" height="1806" alt="image" src="https://github.com/user-attachments/assets/068c7fc5-fe14-41f1-9fc2-ff875b86897d" />
+ | <img width="1857" height="1852" alt="image" src="https://github.com/user-attachments/assets/23baa14f-af98-429a-902f-8487bda9bb04" />
+ |
 
 ---
 
