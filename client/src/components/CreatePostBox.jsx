@@ -129,7 +129,7 @@ const CreatePostBox = ({ onPostCreated }) => {
               <div style={{
                 marginTop: '10px',
                 padding: '12px',
-                backgroundColor: '#F8FAFC',
+                backgroundColor: 'var(--color-bg-secondary)',
                 borderRadius: 'var(--radius-md)',
                 border: '1px solid var(--color-border)'
               }}>

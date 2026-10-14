@@ -75,12 +75,11 @@ const StoriesPage = () => {
   return (
     <div style={{ padding: '40px 20px 80px 20px' }}>
       <div className="container">
-        {/* Hero Banner for Inspire section */}
         <div style={{
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'var(--color-card)',
           border: '1px solid var(--color-border)',
           borderRadius: 'var(--radius-xl)',
-          padding: '40px',
+          padding: 'clamp(22px, 4.5vw, 40px)',
           marginBottom: '36px',
           boxShadow: 'var(--shadow-sm)',
           display: 'flex',
@@ -88,7 +87,7 @@ const StoriesPage = () => {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '24px',
-          background: 'radial-gradient(circle at top right, #FFF7ED 0%, #FFFFFF 60%)'
+          background: 'radial-gradient(circle at top right, var(--color-accent-light) 0%, var(--color-card) 75%)'
         }}>
           <div style={{ maxWidth: '640px' }}>
             <div style={{

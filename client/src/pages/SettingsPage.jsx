@@ -322,7 +322,7 @@ const SettingsPage = () => {
               {/* Worker Specific Fields */}
               {isWorker && (
                 <div style={{
-                  backgroundColor: '#F8FAFC',
+                  backgroundColor: 'var(--color-bg-secondary)',
                   padding: '16px',
                   borderRadius: 'var(--radius-md)',
                   marginBottom: '18px',
@@ -331,7 +331,7 @@ const SettingsPage = () => {
                   <div style={{ fontWeight: 700, fontSize: '0.875rem', marginBottom: '12px', color: 'var(--color-primary)' }}>
                     Social Service Organization Information
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                  <div className="modal-form-row">
                     <div className="form-group">
                       <label className="form-label">Organization Name</label>
                       <input
@@ -576,7 +576,7 @@ const SettingsPage = () => {
           padding: '24px',
           border: '1px solid var(--color-border)',
           borderRadius: 'var(--radius-lg)',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'var(--color-card)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',

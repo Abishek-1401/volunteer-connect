@@ -69,12 +69,7 @@ const HomePage = () => {
 
   return (
     <div style={{ padding: '30px 20px 60px 20px' }}>
-      <div className="container" style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(0, 2fr) minmax(280px, 1fr)',
-        gap: '30px',
-        alignItems: 'flex-start'
-      }}>
+      <div className="container feed-grid">
         {/* Main Feed Column */}
         <div>
           {/* Welcome & Complete Profile Banner */}
@@ -193,7 +188,7 @@ const HomePage = () => {
 
           {/* Inspire Stories Highlight Box */}
           <div className="card" style={{
-            background: 'linear-gradient(145deg, #FFF7ED 0%, #FFFFFF 100%)',
+            background: 'radial-gradient(circle at top right, var(--color-accent-light) 0%, var(--color-card) 75%)',
             border: '1px solid var(--color-accent-border)',
             padding: '20px'
           }}>
@@ -235,7 +230,7 @@ const HomePage = () => {
                     borderRadius: 'var(--radius-md)',
                     transition: 'background-color var(--transition-fast)'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F8FAFC'}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-bg-secondary)'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

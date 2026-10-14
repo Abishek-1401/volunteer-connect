@@ -67,13 +67,7 @@ const ExplorePage = () => {
 
         {/* Search & Filter Bar */}
         <div className="card" style={{ padding: '20px', marginBottom: '28px' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.5fr 1fr auto',
-            gap: '12px',
-            alignItems: 'center',
-            marginBottom: '16px'
-          }}>
+          <div className="explore-filter-grid">
             {/* Search input */}
             <div style={{ position: 'relative' }}>
               <Search
@@ -233,14 +227,6 @@ const ExplorePage = () => {
           </div>
         )}
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .card > div:first-child {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </div>
   );
 };

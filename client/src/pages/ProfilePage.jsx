@@ -124,13 +124,7 @@ const ProfilePage = () => {
       <div className="container" style={{ position: 'relative', marginTop: '-70px' }}>
         {/* Profile Header Card */}
         <div className="card" style={{ padding: '30px', marginBottom: '30px' }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            flexWrap: 'wrap',
-            gap: '20px'
-          }}>
+          <div className="profile-header-flex">
             {/* Left: Avatar & Identity */}
             <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
               <img
@@ -141,9 +135,9 @@ const ProfilePage = () => {
                   height: '110px',
                   borderRadius: '50%',
                   objectFit: 'cover',
-                  border: '4px solid #FFFFFF',
+                  border: '4px solid var(--color-surface)',
                   boxShadow: 'var(--shadow-md)',
-                  backgroundColor: '#FFFFFF'
+                  backgroundColor: 'var(--color-surface)'
                 }}
               />
 
@@ -210,10 +204,10 @@ const ProfilePage = () => {
             </div>
 
             {/* Right: Featured Total Hours Counter & Actions */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+            <div className="profile-actions-wrapper">
               {/* Highlighted Total Hours Counter */}
               <div style={{
-                background: 'linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 100%)',
+                background: 'radial-gradient(circle at top right, var(--color-accent-light) 0%, var(--color-card) 75%)',
                 border: '2px solid var(--color-accent-border)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '14px 22px',
@@ -241,7 +235,7 @@ const ProfilePage = () => {
               </div>
 
               {isOwnProfile && (
-                <div style={{ display: 'flex', gap: '8px' }}>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                   <Link to="/settings" className="btn btn-outline btn-sm">
                     <Edit3 size={15} /> Edit Profile
                   </Link>

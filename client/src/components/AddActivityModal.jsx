@@ -136,7 +136,7 @@ const AddActivityModal = ({ isOpen, onClose, onActivitySaved, editingActivity })
           </div>
 
           {/* Organization & Cause in 2 columns */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="modal-form-row">
             <div className="form-group">
               <label className="form-label">
                 <span>Organization / NGO *</span>
@@ -169,7 +169,7 @@ const AddActivityModal = ({ isOpen, onClose, onActivitySaved, editingActivity })
           </div>
 
           {/* Date & Hours in 2 columns */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="modal-form-row">
             <div className="form-group">
               <label className="form-label">
                 <span>Date of Service *</span>

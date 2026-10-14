@@ -146,7 +146,7 @@ const CreateStoryModal = ({ isOpen, onClose, onStoryCreated }) => {
           </div>
 
           {/* Cause & Hours */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="modal-form-row">
             <div className="form-group">
               <label className="form-label">
                 <span>Cause Area</span>

@@ -38,12 +38,12 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section style={{
         position: 'relative',
-        background: 'linear-gradient(180deg, #F0FDFA 0%, #F8FAFC 100%)',
-        padding: '70px 20px 50px 20px',
+        background: 'radial-gradient(circle at top right, var(--color-primary-light) 0%, transparent 60%)',
+        padding: 'clamp(40px, 8vw, 70px) 0 clamp(30px, 6vw, 50px) 0',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden'
       }}>
-        <div className="container" style={{
+        <div className="container hero-grid" style={{
           display: 'grid',
           gridTemplateColumns: '1.2fr 0.8fr',
           gap: '40px',
@@ -127,11 +127,11 @@ const LandingPage = () => {
 
           {/* Hero Right Demo / Visual Card */}
           <div className="card fade-in" style={{
-            padding: '28px',
+            padding: 'clamp(18px, 4vw, 28px)',
             boxShadow: 'var(--shadow-xl)',
             border: '1px solid var(--color-border)',
             position: 'relative',
-            backgroundColor: '#FFFFFF'
+            backgroundColor: 'var(--color-card)'
           }}>
             <div style={{
               display: 'flex',
@@ -139,11 +139,13 @@ const LandingPage = () => {
               justifyContent: 'space-between',
               marginBottom: '18px',
               paddingBottom: '14px',
-              borderBottom: '1px solid var(--color-border)'
+              borderBottom: '1px solid var(--color-border)',
+              flexWrap: 'wrap',
+              gap: '12px'
             }}>
               <div>
                 <span className="badge badge-teal" style={{ marginBottom: '4px' }}>Live Portfolio Preview</span>
-                <div style={{ fontWeight: 800, fontSize: '1.15rem' }}>Maya Lin</div>
+                <div style={{ fontWeight: 800, fontSize: '1.15rem', color: 'var(--color-text)' }}>Maya Lin</div>
                 <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-secondary)' }}>San Francisco, CA • Volunteer</div>
               </div>
 
@@ -162,7 +164,7 @@ const LandingPage = () => {
 
             {/* Sample Volunteer Activity Item */}
             <div style={{
-              backgroundColor: '#F8FAFC',
+              backgroundColor: 'var(--color-bg-secondary)',
               borderRadius: 'var(--radius-md)',
               padding: '12px 16px',
               marginBottom: '12px',
@@ -179,7 +181,7 @@ const LandingPage = () => {
             </div>
 
             <div style={{
-              backgroundColor: '#F8FAFC',
+              backgroundColor: 'var(--color-bg-secondary)',
               borderRadius: 'var(--radius-md)',
               padding: '12px 16px',
               marginBottom: '20px',
@@ -364,7 +366,7 @@ const LandingPage = () => {
               <span>Create Free Account</span>
               <ArrowRight size={18} />
             </Link>
-            <Link to="/explore" className="btn btn-outline btn-lg" style={{ backgroundColor: '#FFFFFF', color: 'var(--color-primary)' }}>
+            <Link to="/explore" className="btn btn-outline btn-lg" style={{ backgroundColor: 'var(--color-surface)', color: 'var(--color-primary)' }}>
               Explore Network
             </Link>
           </div>
@@ -373,8 +375,9 @@ const LandingPage = () => {
 
       <style>{`
         @media (max-width: 900px) {
-          .container {
+          .hero-grid {
             grid-template-columns: 1fr !important;
+            gap: 32px !important;
           }
         }
       `}</style>

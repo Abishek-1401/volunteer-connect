@@ -1,27 +1,35 @@
-/* VolunteerConnect Design System & CSS Variables */
+/* VolunteerConnect - Soft Maximalism Design System & Adaptive Dark Mode */
+
 :root {
-  /* 60-30-10 Rule Color Palette */
-  --color-primary: #0F766E;        /* 30% Primary Teal */
-  --color-primary-hover: #115E59;  /* Dark Teal */
-  --color-primary-light: #F0FDFA;  /* Soft Teal Background */
-  --color-primary-border: #99F6E4; /* Teal Accent Border */
-  
-  --color-accent: #F97316;         /* 10% Warm Orange Accent (Like, badges, highlights) */
+  /* ==========================================================================
+     LIGHT THEME (Default) - 60-30-10 Rule with Soft Maximalist Tactility
+     ========================================================================== */
+  --color-primary: #0F766E;          /* 30% Primary Teal */
+  --color-primary-hover: #115E59;    /* Dark Teal */
+  --color-primary-light: #F0FDFA;    /* Soft Teal Glow */
+  --color-primary-border: #99F6E4;   /* Teal Accent Border */
+  --color-primary-rgb: 15, 118, 110;
+
+  --color-accent: #F97316;           /* 10% Warm Orange (Likes, Badges, Highlights) */
   --color-accent-hover: #EA580C;
-  --color-accent-light: #FFF7ED;   /* Soft Orange Background */
+  --color-accent-light: #FFF7ED;     /* Soft Warm Amber */
   --color-accent-border: #FED7AA;
-  
-  --color-bg: #F8FAFC;             /* 60% Neutral Background (Off-white) */
-  --color-card: #FFFFFF;           /* Card White */
-  --color-card-hover: #FCFDFE;
-  
-  --color-text: #0F172A;           /* Dark Slate Text */
-  --color-text-secondary: #64748B; /* Secondary Gray Text */
+  --color-accent-rgb: 249, 115, 22;
+
+  --color-bg: #F8FAFC;               /* 60% Neutral Background (Soft Off-White) */
+  --color-bg-secondary: #F1F5F9;
+  --color-card: rgba(255, 255, 255, 0.94);
+  --color-card-solid: #FFFFFF;
+  --color-card-hover: #FFFFFF;
+  --color-surface: #FFFFFF;
+
+  --color-text: #0F172A;             /* Dark Slate */
+  --color-text-secondary: #64748B;   /* Secondary Muted Gray */
   --color-text-muted: #94A3B8;
-  
-  --color-border: #E2E8F0;         /* Light Gray Border */
+
+  --color-border: #E2E8F0;           /* Subtle Light Gray Border */
   --color-border-hover: #CBD5E1;
-  
+
   /* Status Colors */
   --color-success: #16A34A;
   --color-success-bg: #F0FDF4;
@@ -30,37 +38,110 @@
   --color-warning: #F59E0B;
   --color-warning-bg: #FFFBEB;
 
-  /* Elevations & Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  /* Soft Maximalism Shadows & Glows */
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 6px 16px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 14px 28px -6px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 24px 38px -8px rgba(15, 23, 42, 0.14), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+  --glow-primary: 0 0 24px rgba(15, 118, 110, 0.18);
+  --glow-accent: 0 0 24px rgba(249, 115, 22, 0.22);
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(226, 232, 240, 0.8);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
   --radius-full: 9999px;
 
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-theme: background-color 300ms ease, color 250ms ease, border-color 250ms ease;
 
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* ==========================================================================
+   DARK THEME - Soft Maximalist Midnight Slate with Luminous Accents
+   ========================================================================== */
+[data-theme="dark"] {
+  --color-primary: #14B8A6;          /* Luminous Teal in Dark */
+  --color-primary-hover: #2DD4BF;
+  --color-primary-light: rgba(20, 184, 166, 0.14);
+  --color-primary-border: rgba(20, 184, 166, 0.35);
+  --color-primary-rgb: 20, 184, 166;
+
+  --color-accent: #FB923C;           /* Luminous Warm Orange in Dark */
+  --color-accent-hover: #F97316;
+  --color-accent-light: rgba(251, 146, 60, 0.14);
+  --color-accent-border: rgba(251, 146, 60, 0.35);
+  --color-accent-rgb: 251, 146, 60;
+
+  --color-bg: #090E17;               /* Deep Midnight Slate */
+  --color-bg-secondary: #0F172A;
+  --color-card: rgba(19, 27, 46, 0.88);
+  --color-card-solid: #131B2E;
+  --color-card-hover: #182238;
+  --color-surface: #131B2E;
+
+  --color-text: #F8FAFC;             /* Bright Crisp White */
+  --color-text-secondary: #94A3B8;   /* Soft Slate Gray */
+  --color-text-muted: #64748B;
+
+  --color-border: #1E293B;           /* Deep Slate Border */
+  --color-border-hover: #334155;
+
+  --color-success: #22C55E;
+  --color-success-bg: rgba(34, 197, 94, 0.14);
+  --color-error: #EF4444;
+  --color-error-bg: rgba(239, 68, 68, 0.14);
+  --color-warning: #F59E0B;
+  --color-warning-bg: rgba(245, 158, 11, 0.14);
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 16px -4px rgba(0, 0, 0, 0.4), 0 2px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 14px 28px -6px rgba(0, 0, 0, 0.5), 0 4px 10px -2px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 24px 38px -8px rgba(0, 0, 0, 0.6), 0 8px 16px -4px rgba(0, 0, 0, 0.4);
+  --glow-primary: 0 0 28px rgba(20, 184, 166, 0.22);
+  --glow-accent: 0 0 28px rgba(251, 146, 60, 0.25);
+
+  --glass-bg: rgba(19, 27, 46, 0.82);
+  --glass-border: rgba(51, 65, 85, 0.7);
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: 'Inter', sans-serif;
-  line-height: 1.5;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  transition: var(--transition-theme);
+  overflow-x: hidden;
+
+  /* Soft Maximalist Ambient Radial Meshes */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(var(--color-primary-rgb), 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(var(--color-accent-rgb), 0.04) 0px, transparent 50%);
+  background-attachment: fixed;
 }
 
 #root {
@@ -73,20 +154,28 @@ body {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 a:hover {
   color: var(--color-primary-hover);
 }
 
-/* Buttons */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   SOFT MAXIMALIST BUTTONS
+   ========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 10px 20px;
   font-size: 0.9375rem;
   font-weight: 600;
   border-radius: var(--radius-md);
@@ -96,6 +185,12 @@ a:hover {
   white-space: nowrap;
   user-select: none;
   font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn:disabled {
@@ -107,33 +202,38 @@ a:hover {
 .btn-primary {
   background-color: var(--color-primary);
   color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.25);
 }
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--color-primary-hover);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), var(--glow-primary);
+  transform: translateY(-1px);
 }
 
 .btn-accent {
   background-color: var(--color-accent);
   color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(var(--color-accent-rgb), 0.28);
 }
 
 .btn-accent:hover:not(:disabled) {
   background-color: var(--color-accent-hover);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), var(--glow-accent);
+  transform: translateY(-1px);
 }
 
 .btn-outline {
-  background-color: #FFFFFF;
+  background-color: var(--color-surface);
   border-color: var(--color-border);
   color: var(--color-text);
 }
 
 .btn-outline:hover:not(:disabled) {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-secondary);
   border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: translateY(-1px);
 }
 
 .btn-outline-primary {
@@ -145,6 +245,7 @@ a:hover {
 .btn-outline-primary:hover:not(:disabled) {
   background-color: var(--color-primary-light);
   color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .btn-ghost {
@@ -153,18 +254,18 @@ a:hover {
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background-color: rgba(15, 23, 42, 0.05);
-  color: var(--color-text);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .btn-sm {
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 0.8125rem;
   border-radius: var(--radius-sm);
 }
 
 .btn-lg {
-  padding: 14px 24px;
+  padding: 13px 26px;
   font-size: 1.05rem;
   border-radius: var(--radius-lg);
 }
@@ -173,13 +274,16 @@ a:hover {
   width: 100%;
 }
 
-/* Form Controls */
+/* ==========================================================================
+   FORM CONTROLS (Responsive & Themed)
+   ========================================================================== */
 .form-group {
   margin-bottom: 18px;
   display: flex;
   flex-direction: column;
   gap: 6px;
   text-align: left;
+  width: 100%;
 }
 
 .form-label {
@@ -189,6 +293,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .form-label-optional {
@@ -201,22 +307,27 @@ a:hover {
 .form-select,
 .form-textarea {
   width: 100%;
-  padding: 10px 14px;
+  padding: 11px 15px;
   font-size: 0.9375rem;
   font-family: inherit;
   color: var(--color-text);
-  background-color: #FFFFFF;
+  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
   outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-muted);
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.18);
 }
 
 .form-input.error,
@@ -228,7 +339,7 @@ a:hover {
 .form-input.error:focus,
 .form-select.error:focus,
 .form-textarea.error:focus {
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
 }
 
 .field-error {
@@ -240,21 +351,19 @@ a:hover {
   gap: 4px;
 }
 
-.field-help {
-  color: var(--color-text-secondary);
-  font-size: 0.8125rem;
-  margin-top: 4px;
-}
-
-/* Badges & Tags */
+/* ==========================================================================
+   BADGES & PILLS
+   ========================================================================== */
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 10px;
+  gap: 5px;
+  padding: 4px 11px;
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
 .badge-teal {
@@ -270,59 +379,243 @@ a:hover {
 }
 
 .badge-gray {
-  background-color: #F1F5F9;
+  background-color: var(--color-bg-secondary);
   color: var(--color-text-secondary);
   border: 1px solid var(--color-border);
 }
 
 .badge-worker {
-  background-color: #EFF6FF;
-  color: #2563EB;
-  border: 1px solid #BFDBFE;
+  background-color: rgba(37, 99, 235, 0.12);
+  color: #3B82F6;
+  border: 1px solid rgba(59, 130, 246, 0.35);
 }
 
-/* Cards */
+[data-theme="dark"] .badge-worker {
+  background-color: rgba(96, 165, 250, 0.15);
+  color: #60A5FA;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+}
+
+/* ==========================================================================
+   SOFT MAXIMALIST CARDS (Glassmorphism + Rich Elevation)
+   ========================================================================== */
 .card {
   background-color: var(--color-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: clamp(16px, 3.5vw, 24px);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .card-hover:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  border-color: #CBD5E1;
+  border-color: var(--color-border-hover);
 }
 
-/* Layout Containers */
+/* ==========================================================================
+   RESPONSIVE CONTAINERS
+   ========================================================================== */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(16px, 4vw, 28px);
 }
 
 .container-narrow {
   width: 100%;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(16px, 4vw, 24px);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ==========================================================================
+   TAG SELECTION GRID (Pills)
+   ========================================================================== */
+.tags-selectable-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
 }
 
-.fade-in {
-  animation: fadeIn 250ms ease-out forwards;
+.tag-selectable {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+  user-select: none;
 }
 
-/* Custom Checkbox */
+.tag-selectable:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.tag-selectable.selected {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.28);
+}
+
+/* ==========================================================================
+   ROLE SELECTOR CARDS
+   ========================================================================== */
+.role-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.role-card-option {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+  background-color: var(--color-surface);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.role-card-option:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.role-card-option.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  box-shadow: 0 0 0 2px var(--color-primary), var(--glow-primary);
+}
+
+.role-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.role-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  transition: all var(--transition-fast);
+}
+
+.role-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.role-card-desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   MODALS (Mobile-Optimized & Dark Mode Safe)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(9, 14, 23, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: clamp(12px, 3vw, 24px);
+  animation: fadeIn 150ms ease-out;
+}
+
+.modal-content {
+  background-color: var(--color-card-solid);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  max-width: 580px;
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  padding: clamp(20px, 4vw, 32px);
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ==========================================================================
+   STAT BOXES (Soft Maximalist Gradient Cards)
+   ========================================================================== */
+.stat-box {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  color: #FFFFFF;
+  padding: clamp(18px, 3vw, 26px);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-box::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.stat-value {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.stat-accent-value {
+  color: #FED7AA;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.92;
+  margin-top: 6px;
+}
+
+/* Checkbox */
 .checkbox-container {
   display: flex;
   align-items: flex-start;
@@ -342,160 +635,131 @@ a:hover {
   cursor: pointer;
 }
 
-/* Tag Selection Grid */
-.tags-selectable-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 6px;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.tag-selectable {
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid var(--color-border);
-  background-color: #FFFFFF;
-  color: var(--color-text);
-  transition: all var(--transition-fast);
-  user-select: none;
+.fade-in {
+  animation: fadeIn 250ms ease-out forwards;
 }
 
-.tag-selectable:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary-light);
-}
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
 
-.tag-selectable.selected {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
-  border-color: var(--color-primary);
-}
-
-/* Role Selector Cards */
-.role-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
+/* Small Devices (Phones < 640px) */
 @media (max-width: 640px) {
   .role-cards-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .btn-lg {
+    padding: 11px 20px;
+    font-size: 0.95rem;
+  }
+
+  .modal-content {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
   }
 }
 
-.role-card-option {
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  text-align: left;
-  background-color: #FFFFFF;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+/* Extra Small (Phones < 420px) */
+@media (max-width: 420px) {
+  .btn {
+    padding: 8px 14px;
+    font-size: 0.875rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 9px 12px;
+    font-size: 0.875rem;
+  }
+
+  .badge {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
 }
 
-.role-card-option:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary-light);
-}
-
-.role-card-option.selected {
-  border-color: var(--color-primary);
-  background-color: #F0FDFA;
-  box-shadow: 0 0 0 1px var(--color-primary);
-}
-
-.role-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.role-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-}
-
-.role-card-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 4px;
-}
-
-.role-card-desc {
-  font-size: 0.8125rem;
-  color: var(--color-text-secondary);
-  line-height: 1.4;
-}
-
-/* Modal Overlay */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-  animation: fadeIn 150ms ease-out;
-}
-
-.modal-content {
-  background-color: #FFFFFF;
-  border-radius: var(--radius-xl);
-  max-width: 580px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: var(--shadow-xl);
-  padding: 28px;
-  position: relative;
-}
-
-/* Stat Counter */
-.stat-box {
-  background: linear-gradient(135deg, #0F766E 0%, #115E59 100%);
-  color: #FFFFFF;
-  padding: 20px 24px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
+/* ==========================================================================
+   PAGE LAYOUT GRIDS & RESPONSIVE ADAPTATIONS
+   ========================================================================== */
+.feed-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 30px;
   align-items: flex-start;
-  box-shadow: var(--shadow-md);
 }
 
-.stat-value {
-  font-size: 2.25rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #FFFFFF;
+@media (max-width: 900px) {
+  .feed-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
-.stat-accent-value {
-  color: #FDBA74;
+.explore-filter-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.stat-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  opacity: 0.9;
-  margin-top: 4px;
+@media (max-width: 768px) {
+  .explore-filter-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 540px) {
+  .modal-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.profile-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.profile-actions-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .profile-header-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-actions-wrapper {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .profile-actions-wrapper > * {
+    width: 100%;
+    justify-content: center;
+  }
 }

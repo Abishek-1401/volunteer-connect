@@ -294,7 +294,7 @@ const PostCard = ({ post, onDelete }) => {
                 <div key={idx} style={{
                   display: 'flex',
                   gap: '10px',
-                  backgroundColor: '#F8FAFC',
+                  backgroundColor: 'var(--color-bg-secondary)',
                   padding: '10px 14px',
                   borderRadius: 'var(--radius-md)'
                 }}>

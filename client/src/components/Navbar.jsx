@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ThemeToggle from './ThemeToggle';
 import { 
   Heart, 
   Compass, 
@@ -10,9 +11,7 @@ import {
   Settings, 
   LogOut, 
   Menu, 
-  X,
-  PlusCircle,
-  Briefcase
+  X
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -33,15 +32,19 @@ const Navbar = () => {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: 'var(--color-card)',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
       borderBottom: '1px solid var(--color-border)',
-      boxShadow: 'var(--shadow-sm)'
+      boxShadow: 'var(--shadow-sm)',
+      transition: 'var(--transition-theme)'
     }}>
       <div className="container" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '70px'
+        height: '70px',
+        gap: '12px'
       }}>
         {/* Brand Logo */}
         <Link to={isAuthenticated ? '/home' : '/'} style={{
@@ -49,9 +52,10 @@ const Navbar = () => {
           alignItems: 'center',
           gap: '10px',
           fontWeight: 800,
-          fontSize: '1.25rem',
+          fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
           color: 'var(--color-text)',
-          letterSpacing: '-0.02em'
+          letterSpacing: '-0.02em',
+          flexShrink: 0
         }}>
           <div style={{
             width: '38px',
@@ -62,11 +66,12 @@ const Navbar = () => {
             alignItems: 'center',
             justifyContent: 'center',
             color: '#FFFFFF',
-            boxShadow: '0 4px 10px rgba(15, 118, 110, 0.25)'
+            boxShadow: '0 4px 12px rgba(var(--color-primary-rgb), 0.3)',
+            flexShrink: 0
           }}>
-            <Heart size={22} fill="#F97316" color="#F97316" />
+            <Heart size={20} fill="var(--color-accent)" color="var(--color-accent)" />
           </div>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+          <span>
             Volunteer<span style={{ color: 'var(--color-primary)' }}>Connect</span>
           </span>
         </Link>
@@ -74,7 +79,7 @@ const Navbar = () => {
         {/* Center Nav Links (Desktop) */}
         <div style={{
           display: 'none',
-          gap: '8px',
+          gap: '6px',
           alignItems: 'center'
         }} className="desktop-nav-links">
           {isAuthenticated && (
@@ -87,7 +92,7 @@ const Navbar = () => {
                 backgroundColor: isActive ? 'var(--color-primary-light)' : 'transparent'
               })}
             >
-              <Home size={18} />
+              <Home size={17} />
               Home Feed
             </NavLink>
           )}
@@ -101,7 +106,7 @@ const Navbar = () => {
               backgroundColor: isActive ? 'var(--color-primary-light)' : 'transparent'
             })}
           >
-            <Compass size={18} />
+            <Compass size={17} />
             Explore
           </NavLink>
 
@@ -114,17 +119,20 @@ const Navbar = () => {
               backgroundColor: isActive ? 'var(--color-primary-light)' : 'transparent'
             })}
           >
-            <Sparkles size={18} color="var(--color-accent)" />
+            <Sparkles size={17} color="var(--color-accent)" />
             Inspire Stories
           </NavLink>
         </div>
 
-        {/* Right Action / Auth Buttons (Desktop) */}
+        {/* Right Action / Auth Buttons + Theme Toggle (Desktop) */}
         <div style={{
           display: 'none',
           alignItems: 'center',
           gap: '12px'
         }} className="desktop-nav-actions">
+          {/* Theme Toggle Button */}
+          <ThemeToggle />
+
           {isAuthenticated ? (
             <div style={{ position: 'relative' }}>
               <button
@@ -133,19 +141,19 @@ const Navbar = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '10px',
-                  background: 'none',
+                  backgroundColor: 'var(--color-surface)',
                   border: '1px solid var(--color-border)',
                   padding: '5px 12px 5px 6px',
                   borderRadius: 'var(--radius-full)',
                   cursor: 'pointer',
-                  transition: 'background-color var(--transition-fast)'
+                  transition: 'all var(--transition-fast)'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-bg)'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--color-primary)'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'}
               >
                 <img
                   src={user?.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user?.name || 'User')}&backgroundColor=0F766E`}
-                  alt={user?.name}
+                  alt={user?.name || 'User'}
                   style={{
                     width: '32px',
                     height: '32px',
@@ -159,7 +167,7 @@ const Navbar = () => {
                   </div>
                   <div style={{
                     fontSize: '0.7rem',
-                    color: user?.role === 'worker' ? '#2563EB' : 'var(--color-primary)',
+                    color: user?.role === 'worker' ? '#3B82F6' : 'var(--color-primary)',
                     fontWeight: 600,
                     textTransform: 'capitalize'
                   }}>
@@ -176,15 +184,15 @@ const Navbar = () => {
                     right: 0,
                     top: 'calc(100% + 8px)',
                     width: '210px',
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'var(--color-surface)',
                     border: '1px solid var(--color-border)',
                     borderRadius: 'var(--radius-lg)',
-                    boxShadow: 'var(--shadow-lg)',
-                    padding: '6px',
+                    boxShadow: 'var(--shadow-xl)',
+                    padding: '8px',
                     zIndex: 200,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '2px'
+                    gap: '4px'
                   }}
                   onMouseLeave={() => setUserDropdownOpen(false)}
                 >
@@ -230,51 +238,59 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile menu hamburger toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="mobile-menu-btn"
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: '6px',
-            color: 'var(--color-text)'
-          }}
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        {/* Mobile menu right side: Theme toggle + Hamburger */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="mobile-nav-actions">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-menu-btn"
+            style={{
+              background: 'var(--color-surface)',
+              border: '1px solid var(--color-border)',
+              borderRadius: 'var(--radius-sm)',
+              cursor: 'pointer',
+              padding: '7px',
+              color: 'var(--color-text)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Responsive Overlay) */}
       {mobileMenuOpen && (
         <div style={{
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'var(--color-card)',
           borderBottom: '1px solid var(--color-border)',
           padding: '16px 20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '12px'
+          gap: '10px',
+          boxShadow: 'var(--shadow-lg)',
+          animation: 'fadeIn 200ms ease'
         }}>
           {isAuthenticated ? (
             <>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: '12px',
                 paddingBottom: '12px',
                 borderBottom: '1px solid var(--color-border)'
               }}>
                 <img
                   src={user?.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user?.name || 'User')}`}
-                  alt={user?.name}
-                  style={{ width: '40px', height: '40px', borderRadius: '50%' }}
+                  alt={user?.name || 'User'}
+                  style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover' }}
                 />
                 <div>
-                  <div style={{ fontWeight: 700 }}>{user?.name || 'User'}</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--color-primary)' }}>
+                  <div style={{ fontWeight: 700, color: 'var(--color-text)' }}>{user?.name || 'User'}</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--color-primary)', fontWeight: 600 }}>
                     {user?.role === 'worker' ? 'Social Service Worker' : 'Volunteer'}
                   </div>
                 </div>
@@ -294,7 +310,7 @@ const Navbar = () => {
               <Link to="/settings" onClick={() => setMobileMenuOpen(false)} className="btn btn-ghost" style={{ justifyContent: 'flex-start' }}>
                 <Settings size={18} /> Settings
               </Link>
-              <button onClick={handleLogout} className="btn btn-outline" style={{ color: 'var(--color-error)', justifyContent: 'flex-start' }}>
+              <button onClick={handleLogout} className="btn btn-outline" style={{ color: 'var(--color-error)', justifyContent: 'flex-start', marginTop: '6px' }}>
                 <LogOut size={18} /> Log Out
               </button>
             </>
@@ -317,15 +333,15 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Responsive CSS for desktop and mobile navigation */}
+      {/* Responsive Styles */}
       <style>{`
-        @media (min-width: 768px) {
+        @media (min-width: 860px) {
           .desktop-nav-links { display: flex !important; }
           .desktop-nav-actions { display: flex !important; }
-          .mobile-menu-btn { display: none !important; }
+          .mobile-nav-actions { display: none !important; }
         }
-        @media (max-width: 767px) {
-          .mobile-menu-btn { display: block !important; }
+        @media (max-width: 859px) {
+          .mobile-nav-actions { display: flex !important; }
         }
       `}</style>
     </nav>

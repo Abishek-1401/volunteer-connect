@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer style={{
-      backgroundColor: '#FFFFFF',
+      backgroundColor: 'var(--color-card)',
+      backdropFilter: 'blur(16px)',
       borderTop: '1px solid var(--color-border)',
       padding: '40px 0 24px 0',
-      marginTop: 'auto'
+      marginTop: 'auto',
+      transition: 'var(--transition-theme)'
     }}>
       <div className="container" style={{
         display: 'flex',
